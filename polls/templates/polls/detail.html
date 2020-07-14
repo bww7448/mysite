@@ -1,0 +1,20 @@
+<h1>{{ question.question_text }}</h1>
+
+<!--action, method, enctype-->
+<form action = "" method = "get"> 
+    {% csrf_token %}
+    <!--get, post
+        input, select, textarea-->
+    <ul>
+        {% for choice in question.choice_set.all %}
+        <li>
+            <input type = "radio" name = "choice" 
+                value = "{{choice.id}}" id = "{{choice.id}}">
+            <label for = "{{choice.id}}">{{choice.choice_text}}</label>
+        </li>
+        {% endfor %}
+    </ul>
+    <input type = "submit" value = "전송" />
+</form>
+
+
