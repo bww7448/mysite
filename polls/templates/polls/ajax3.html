@@ -1,0 +1,35 @@
+<div></div>
+
+<script src = "http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<!-- <body>
+    <script>
+        $.ajax({
+            url : 'http://ggoreb.com/dinosaur/info.jsp',
+            success: function(data){
+                var d = data[0].dinosaurs;
+                for (var i = 0; i < d.length; i++){
+                    var title = d[i].title;
+                    var img = d[i].imgs[0];
+                    $("div").append("<p>" + title + "</p>");
+                    $("div").append("<img src='"+ img + "'>");
+                    $("div").append(`<img src='http://ggoreb.com/dinosaur/images/${img}'>`); //back tic
+                }
+            },
+        });
+    </script>    
+</body> -->
+<script>
+    $.ajax({
+        url : 'http://ggoreb.com/dinosaur/info.jsp',
+        success: function(data){
+            var d = data[0].dinosaurs;
+            for (var i = 0; i < d.length; i++){
+                var title = d[i].title;
+                var img = d[i].imgs[0];
+                $("div").append("<p>" + title + "</p>");
+                //$("div").append("<img src='"+ img + "'>");
+                $("div").append(`<img src='http://ggoreb.com/dinosaur/images/${img}'>`); //back tic
+            }
+        },
+    });
+</script>

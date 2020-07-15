@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+    <script>
+        var xmlHttp = new XMLHttpRequest();
+
+        function send() {
+            // var url = "龋免 林家";
+            var url = "http://ggoreb.com/ajax/json/data1.jsp";
+            xmlHttp.onreadystatechange = callback; 
+            xmlHttp.open("GET", url, true);
+            xmlHttp.send(null);
+        }
+
+        function callback() {
+            /* 
+                泅犁 xmlHttp 按眉狼 惑怕
+                0 ~ 4 鳖瘤狼 蔼 粮犁
+                0(UNINITIALIZED) : 檬扁拳 傈
+                1(LOADING) : open 窃荐 龋免
+                2(LOADED) : send 窃荐鳖瘤 龋免沁瘤父 辑滚肺何磐 览翠捞 档馒窍瘤 臼澜
+                3(INTERACTIVE) : 览翠 单捞磐甫 老何父 罐澜
+                4(COMPLETED) : 览翠 单捞磐甫 葛滴 罐澜(肯丰)
+            */
+            if(xmlHttp.readyState == 4) {
+
+                /* 
+                    辑滚客狼 烹脚 饶 搬苞 内靛
+                    ex) 200(OK) : 烹脚 肯丰
+                        403(Forbidden) : 立辟 芭何
+                        404(Not Found) : 其捞瘤 绝澜
+                        500(Internal Server Error) : 辑滚 坷幅
+                */
+                if(xmlHttp.status == 200) {
+                    temp = xmlHttp.responseText;
+                    alert(temp);
+                }
+            }
+        }    
+    </script>
+</head>
+
+<body>
+    <input type="button" value="夸没" onclick="send()">
+</body>
+
+</html>

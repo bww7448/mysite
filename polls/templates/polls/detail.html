@@ -1,7 +1,8 @@
 <h1>{{ question.question_text }}</h1>
 
 <!--action, method, enctype-->
-<form action = "" method = "get"> 
+<!-- <form action = "/{{ question.id }}/vote/" method = "post">  -->
+<form action = "{% url 'votes' question.id %}" method = "post"> 
     {% csrf_token %}
     <!--get, post
         input, select, textarea-->
@@ -9,12 +10,34 @@
         {% for choice in question.choice_set.all %}
         <li>
             <input type = "radio" name = "choice" 
-                value = "{{choice.id}}" id = "{{choice.id}}">
-            <label for = "{{choice.id}}">{{choice.choice_text}}</label>
+                value = "{{ choice.id }}" id = "{{ choice.id }}">
+            <label for = "{{ choice.id }}">{{ choice.choice_text }}</label>
         </li>
         {% endfor %}
     </ul>
     <input type = "submit" value = "전송" />
+    <form>
+        <input type = "submit" id = "frm" value = "초기화" />
+    </form>
+    
+    <input type = "button" value = "초기화" />
 </form>
+<!-- <form action = "/polls/{{ question.id }}/reset/" method = "post">
+    <input type = "submit" value = "초기화">
+</form> -->
+<script src = "http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+    $('[type = button]').click(() => {
+        
+    });
+
+    document.querySelector('[type = button]')
+        .addEventListener('click', function(){
+            // location = '/polls/{{question.id}}/reset/';
+            const frm = document.querySelector('#frm')
+            frm.submit()
+        })
+</script>
+
 
 
